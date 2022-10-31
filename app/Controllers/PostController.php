@@ -4,8 +4,8 @@ namespace App\Controllers;
 
 final class PostController
 {
-    public function create(): void
+    public function create(array $request): void
     {
-        echo "Post Controller";
+        echo $request['title'];
     }
 }
