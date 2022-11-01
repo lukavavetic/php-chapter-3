@@ -1,10 +1,12 @@
 <?php
 
-use App\Controllers\PostController;
+use App\Presentation\PostController;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\RouteCollection;
+
+// php index.php /post.create '{"title":"PHP Chapter"}'
 
 if (false === isset($argv[1])) {
     throw new Exception("Route missing!");
@@ -19,7 +21,6 @@ $routes->add('create_post', $route);
 
 $context = new RequestContext();
 
-// Routing can match routes with incoming requests
 $matcher = new UrlMatcher($routes, $context);
 $parameters = $matcher->match($requestedRoute);
 
