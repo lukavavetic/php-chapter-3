@@ -6,11 +6,21 @@ namespace App\Data;
 
 use App\Domain\ReadModels\PostReadModel;
 use App\Domain\Repositories\PostRepositoryInterface;
+use Symfony\Component\Dotenv\Dotenv;
 
 final class PostRepository implements PostRepositoryInterface
 {
+    private string $tableName = '';
+
+    public function __construct()
+    {
+        $this->tableName = getenv('DB_TABLE');
+    }
+
     public function save(int $postId, string $title, string $description, int $createdByUserId): void
     {
+        var_dump($this->tableName);
+        die();
         $entity = [
             $postId => [
                 'title' => $title,

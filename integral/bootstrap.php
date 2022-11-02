@@ -7,12 +7,17 @@ use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\RouteCollection;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
+use Symfony\Component\Dotenv\Dotenv;
+
+require __DIR__.'/../vendor/autoload.php';
 
 // php index.php /post.create '{"title":"PHP Chapter", "description":"Testing, testing!", "userId":1}'
 
 if (false === isset($argv[1])) {
     throw new Exception("Route missing!");
 }
+
+(new Dotenv())->usePutenv()->bootEnv(__DIR__.'/../.env');
 
 $containerBuilder = new ContainerBuilder();
 $containerBuilder->register('PostRepository', \App\Data\PostRepository::class);
