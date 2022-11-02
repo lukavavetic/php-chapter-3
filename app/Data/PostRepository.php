@@ -6,21 +6,20 @@ namespace App\Data;
 
 use App\Domain\ReadModels\PostReadModel;
 use App\Domain\Repositories\PostRepositoryInterface;
-use Symfony\Component\Dotenv\Dotenv;
 
 final class PostRepository implements PostRepositoryInterface
 {
     private string $tableName = '';
+    private DBInterface $database;
 
-    public function __construct()
+    public function __construct(DBInterface $database)
     {
         $this->tableName = getenv('DB_TABLE');
+        $this->database = $database;
     }
 
     public function save(int $postId, string $title, string $description, int $createdByUserId): void
     {
-        var_dump($this->tableName);
-        die();
         $entity = [
             $postId => [
                 'title' => $title,
@@ -29,7 +28,7 @@ final class PostRepository implements PostRepositoryInterface
             ],
         ];
 
-        file_put_contents(__DIR__.'/../../integral/database/post_table.json', json_encode($entity, JSON_PRETTY_PRINT));
+        $this->database->save($this->tableName, $entity);
     }
 
     public function findPostById(int $id): ?PostReadModel

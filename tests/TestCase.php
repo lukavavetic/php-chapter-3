@@ -11,8 +11,5 @@ class TestCase extends BaseTestCase
         parent::setUp();
 
         require __DIR__ . '/../integral/bootstrap.php';
-
-        var_dump(getenv('APP_ENV'));
-        die();
     }
 }
