@@ -21,5 +21,7 @@ final class PostController
         );
 
         $readModel = $this->postService->create($command);
+
+        print_r(json_encode(['title' => $readModel->title(), 'description' => $readModel->description()], JSON_PRETTY_PRINT));
     }
 }
