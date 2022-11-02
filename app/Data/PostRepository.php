@@ -33,9 +33,7 @@ final class PostRepository implements PostRepositoryInterface
 
     public function findPostById(int $id): ?PostReadModel
     {
-        $entities = json_decode(file_get_contents(__DIR__.'/../../integral/database/post_table.json'), true);
-
-        $post = $entities[$id];
+        $post = $this->database->findById($this->tableName, $id);
 
         return new PostReadModel(title: $post['title'], description: $post['description']);
     }

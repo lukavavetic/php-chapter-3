@@ -18,5 +18,6 @@
     </testsuites>
     <php>
         <env name="APP_ENV" value="testing"/>
+        <env name="DB_TABLE" value="test_post_table.json"/>
     </php>
 </phpunit>

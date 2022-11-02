@@ -1,7 +1,7 @@
 {
     "1": {
-        "title": "PHP Chapter",
-        "description": "Testing, testing!",
+        "title": "Title",
+        "description": "Description",
         "createdByUserId": 1
     }
 }

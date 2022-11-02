@@ -9,7 +9,7 @@ use Tests\TestCase;
 
 class PostRepositoryTest extends TestCase
 {
-    public function testExample(): void
+    public function testSave(): void
     {
         /** @var MockInterface $database */
         $database = \Mockery::mock(DBInterface::class);
