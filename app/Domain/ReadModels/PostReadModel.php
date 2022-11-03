@@ -7,8 +7,8 @@ namespace App\Domain\ReadModels;
 final class PostReadModel
 {
     public function __construct(
-        public string $title,
-        public string $description,
+        private string $title,
+        private string $description,
     ) {}
 
     public function title(): string

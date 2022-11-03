@@ -12,7 +12,7 @@ final class PostController
     public function __construct(private PostService $postService)
     {}
 
-    public function create(array $requestBody): void
+    public function create(array $requestBody): string
     {
         $command = new CreatePostCommand(
             title: $requestBody['title'],
@@ -22,6 +22,10 @@ final class PostController
 
         $readModel = $this->postService->create($command);
 
-        echo json_encode(['title' => $readModel->title(), 'description' => $readModel->description()], JSON_PRETTY_PRINT);
+        $response = json_encode(['title' => $readModel->title(), 'description' => $readModel->description()], JSON_PRETTY_PRINT);
+
+        echo $response;
+
+        return $response;
     }
 }

@@ -9,7 +9,7 @@ use App\Domain\Exceptions\PostNotFound;
 use App\Domain\ReadModels\PostReadModel;
 use App\Domain\Repositories\PostRepositoryInterface;
 
-final class PostService
+class PostService
 {
     public function __construct(
         public PostRepositoryInterface $postRepository
