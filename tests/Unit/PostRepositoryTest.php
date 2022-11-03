@@ -7,6 +7,7 @@ use App\Data\PostRepository;
 use Mockery\MockInterface;
 use Tests\TestCase;
 
+/** @group Unit */
 class PostRepositoryTest extends TestCase
 {
     public function testSave(): void

@@ -8,6 +8,7 @@ use App\Presentation\PostController;
 use Mockery\MockInterface;
 use Tests\TestCase;
 
+/** @group Unit */
 class PostControllerTest extends TestCase
 {
     public function testSave(): void
@@ -33,7 +34,7 @@ class PostControllerTest extends TestCase
         $postService->shouldReceive('create')
             ->once()
             ->andReturn(new PostReadModel(
-                title: $title, description: $description
+                id: 1, title: $title, description: $description
             ));
 
         /** @var PostService $postService */

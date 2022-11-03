@@ -10,6 +10,7 @@ use App\Domain\Repositories\PostRepositoryInterface;
 use Mockery\MockInterface;
 use Tests\TestCase;
 
+/** @group Unit */
 class PostServiceTest extends TestCase
 {
     public function testPostCreated(): void
@@ -18,7 +19,7 @@ class PostServiceTest extends TestCase
         $description = 'Description';
         $userId = 1;
 
-        $expectedReadModel = new PostReadModel($title, $description);
+        $expectedReadModel = new PostReadModel(1, $title, $description);
 
         /** @var MockInterface $postService */
         $postRepository = \Mockery::mock(PostRepositoryInterface::class);

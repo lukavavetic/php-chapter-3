@@ -15,6 +15,7 @@ require __DIR__.'/../vendor/autoload.php';
 
 (new Dotenv())->usePutenv()->bootEnv(__DIR__.'/../.env');
 
+global $containerBuilder;
 $containerBuilder = new ContainerBuilder();
 $containerBuilder->register('DB', \App\Data\DB::class);
 $containerBuilder->register('PostRepository', \App\Data\PostRepository::class)->addArgument(new Reference('DB'));

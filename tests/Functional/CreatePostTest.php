@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Functional;
 
+/** @group Functional */
 class CreatePostTest extends FunctionalTestCase
 {
     public function testCreatePost(): void

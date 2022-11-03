@@ -35,6 +35,6 @@ final class PostRepository implements PostRepositoryInterface
     {
         $post = $this->database->findById($this->tableName, $id);
 
-        return new PostReadModel(title: $post['title'], description: $post['description']);
+        return new PostReadModel(id: $id, title: $post['title'], description: $post['description']);
     }
 }
