@@ -1,0 +1,6 @@
+https://phpunit.readthedocs.io/en/9.5/test-doubles.html#mock-objects
+https://docs.mockery.io/en/latest/reference/expectations.html#throwing-exceptions
+https://stackoverflow.com/a/45975572
+https://phpunit.readthedocs.io/en/9.5/writing-tests-for-phpunit.html#data-providers
+https://app.pluralsight.com/library/courses/phpunit-testing-php/table-of-contents
+https://docs.guzzlephp.org/en/stable/testing.html

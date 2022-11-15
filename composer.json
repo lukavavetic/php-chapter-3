@@ -1,7 +1,7 @@
 {
   "name": "phpchapter/3",
   "type": "project",
-  "description": "PHP Chapter 1.",
+  "description": "PHP Chapter 3.",
   "require": {
     "php": "^8.1",
     "symfony/routing": "^6.1",

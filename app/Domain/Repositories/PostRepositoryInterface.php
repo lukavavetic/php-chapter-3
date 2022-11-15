@@ -8,7 +8,7 @@ use App\Domain\ReadModels\PostReadModel;
 
 interface PostRepositoryInterface
 {
-    public function save(int $postId, string $title, string $description, int $createdByUserId): void;
+    public function save(int $postId, string $title, string $description, int $createdByUserId): bool;
 
     public function findPostById(int $id): ?PostReadModel;
 }

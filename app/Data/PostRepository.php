@@ -18,7 +18,7 @@ final class PostRepository implements PostRepositoryInterface
         $this->database = $database;
     }
 
-    public function save(int $postId, string $title, string $description, int $createdByUserId): void
+    public function save(int $postId, string $title, string $description, int $createdByUserId): bool
     {
         $entity = [
             $postId => [
@@ -28,7 +28,13 @@ final class PostRepository implements PostRepositoryInterface
             ],
         ];
 
-        $this->database->save($this->tableName, $entity);
+        try {
+            $this->database->save($this->tableName, $entity);
+
+            return true;
+        } catch (\Exception $exception) {
+            return false;
+        }
     }
 
     public function findPostById(int $id): ?PostReadModel

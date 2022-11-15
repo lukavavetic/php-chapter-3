@@ -26,7 +26,7 @@ class PostServiceTest extends TestCase
 
         $postRepository->shouldReceive('save')
             ->once()
-            ->andReturn(null);
+            ->andReturn(true);
 
         $postRepository->shouldReceive('findPostById')
             ->once()
@@ -50,13 +50,14 @@ class PostServiceTest extends TestCase
         /** @var MockInterface $postService */
         $postRepository = \Mockery::mock(PostRepositoryInterface::class);
 
+        /**
+         * @link https://phpunit.readthedocs.io/en/9.5/test-doubles.html#mock-objects
+         */
         $postRepository->shouldReceive('save')
             ->once()
-            ->andReturn(null);
+            ->andReturn(true);
 
-        $postRepository->shouldReceive('findPostById')
-            ->once()
-            ->andReturn(null);
+        $postRepository->shouldReceive('findPostById')->once();
 
         $this->expectException(PostNotFound::class);
 
